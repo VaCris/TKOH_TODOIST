@@ -1,0 +1,31 @@
+﻿@model TKOH.DTOs.UpdateAssignmentDTO
+@{
+    ViewData["Title"] = "Editar Asignación";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-2">
+                <label asp-for="Status" class="control-label">Estado</label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Evidence" class="control-label">Evidencia</label>
+                <textarea asp-for="Evidence" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Evidence" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

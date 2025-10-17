@@ -1,0 +1,70 @@
+﻿@model List<TKOH.DTOs.AssignmentDTO>
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "My Pending Assignments";
+}
+
+<div class="content-header">
+    <h2 class="content-header h2">@ViewData["Title"]</h2>
+</div>
+
+<div class="assignment-list-container">
+    @if (!Model.Any())
+    {
+        <div class="alert alert-success" role="alert">
+            Congratulations! You have no pending assignments.
+        </div>
+    }
+    else
+    {
+        <div class="assignment-list">
+            @foreach (var item in Model)
+            {
+                var statusClass = item.Status?.ToLower() switch
+                {
+                    "completed" => "completed",
+                    "in progress" => "in-progress",
+                    _ => "pending"
+                };
+                var isOverdue = item.DueDate < DateTime.Today && item.Status?.ToLower() != "completed" ? " overdue" : "";
+
+                <div class="assignment-card @statusClass @isOverdue" data-id="@item.Id">
+
+                    <div class="status-indicator"></div>
+
+                    <div class="task-toggle-area">
+                        <input type="checkbox"
+                               id="assignment-@item.Id"
+                               data-assignment-id="@item.Id"
+                               @if (item.Status?.ToLower() == "completed")
+                               {
+                            <text>checked</text>
+                        }
+                        onclick="alert('Completion functionality pending: ID @item.Id');" />
+                        <label for="assignment-@item.Id" class="custom-checkbox"></label>
+                    </div>
+
+                    <div class="assignment-content">
+                        <h4 class="assignment-title">
+                            @item.TemplateTitle
+                        </h4>
+
+                        <div class="assignment-meta">
+                            <span class="due-date-info">
+                                <i class="far fa-clock"></i> Due: @item.DueDate.ToShortDateString()
+                            </span>
+
+                            <span class="status-tag status-@statusClass">@item.Status</span>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-details" title="Open Assignment">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,75 @@
+﻿@using System.Security.Claims
+@{
+    var userName = User.Identity?.Name;
+    var userRoles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+    var isCollapsed = Context.Request.Cookies["sidebar-collapsed"] == "true";
+}
+
+<aside id="sidebar" class="d-flex flex-column vh-100 @(isCollapsed ? "collapsed" : "")">
+    <div class="text-center mb-4">
+        <img src="~/img/user-avatar.png" alt="Avatar" class="rounded-circle mb-2" style="width: 80px; height: 80px;">
+        <h5>@userName</h5>
+        <small>
+            @(userRoles.Any() ? string.Join(", ", userRoles) : "Sin rol")
+        </small>
+    </div>
+
+    <button class="sidebar-toggle">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+            <a asp-controller="Dashboard" asp-action="Index" class="nav-link">
+                <i class="fas fa-home"></i> <span>Home</span>
+            </a>
+        </li>
+
+        @if (userRoles.Any(r => r == "Student" || r == "Worker"))
+        {
+            <li class="nav-item mb-2">
+                <a asp-controller="Assignment" asp-action="Index" class="nav-link">
+                    <i class="fas fa-check"></i> <span>My Assignments</span>
+                </a>
+            </li>
+        }
+
+        @if (userRoles.Any(r => r == "Admin" || r == "Owner" || r == "Evaluator"))
+        {
+            <li class="nav-item mb-2">
+                <a asp-controller="Users" asp-action="Index" class="nav-link">
+                    <i class="fas fa-users"></i> <span>Users</span>
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                    <i class="fas fa-shield-alt"></i> <span>Roles</span>
+                </a>
+            </li>
+           @*  <li class="nav-item mb-2">
+                <a asp-controller="ActivitySet" asp-action="Index" class="nav-link">
+                    <i class="fas fa-tasks"></i> <span>Activities</span>
+                </a>
+            </li> *@
+            <li class="nav-item mb-2">
+                <a asp-controller="Template" asp-action="Index" class="nav-link">
+                    <i class="fas fa-file-alt"></i> <span>Templates</span>
+                </a>
+            </li>
+            @* <li class="nav-item mb-2">
+                <a asp-controller="ScoreHistory" asp-action="Index" class="nav-link">
+                    <i class="fas fa-award"></i> <span>Scores</span>
+                </a>
+            </li> *@
+        }
+    </ul>
+
+    <div class="d-flex align-items-center gap-3 mt-auto">
+        <form asp-controller="Auth" asp-action="Logout" method="post" class="w-100">
+            <button type="submit" class="btn btn-outline-danger btn-sm w-100 d-flex justify-content-center align-items-center gap-2">
+                <i class="fas fa-sign-out-alt"></i> <span>Log out</span>
+            </button>
+        </form>
+    </div>
+</aside>
+

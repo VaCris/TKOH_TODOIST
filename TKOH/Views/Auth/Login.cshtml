@@ -1,0 +1,66 @@
+﻿@model TKOH.DTOs.LoginRequest
+
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<link rel="stylesheet" href="~/css/auth/auth.css" />
+<link rel="stylesheet" href="~/css/auth/auth-responsive.css" />
+
+<div class="auth-body">
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1 class="auth-main-title">STUDIOS TKOH!</h1>
+            <h2 class="auth-subtitle">Sign In</h2>
+            <p class="auth-instructions">ENTER YOUR CREDENTIALS</p>
+        </div>
+
+        <div class="auth-form-container">
+            <form asp-action="Login" method="post" id="loginForm">
+                <div class="auth-form-group">
+                    <label asp-for="Email" class="auth-form-label">EMAIL</label>
+                    <input asp-for="Email" class="auth-form-control" placeholder="Email" />
+                    <span asp-validation-for="Email" class="auth-text-danger"></span>
+                </div>
+
+                <div class="auth-form-group">
+                    <label asp-for="Password" class="auth-form-label">PASSWORD</label>
+                    <div class="auth-password-container">
+                        <input asp-for="Password" type="password" class="auth-form-control" placeholder="Password" />
+                        <button type="button" class="auth-password-toggle">SHOW</button>
+                    </div>
+                    <span asp-validation-for="Password" class="auth-text-danger"></span>
+                </div>
+
+                @* <div class="auth-form-footer">
+                    <div class="auth-checkbox-group">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="auth-forgot-password">FORGOT PASSWORD?</a>
+                </div> *@
+
+                <button type="submit" class="auth-btn-primary">SIGN IN</button>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="auth-alert auth-alert-danger">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <div>@error.ErrorMessage</div>
+                        }
+                    </div>
+                }
+
+                <div class="auth-link-section">
+                    <a asp-action="Register">No account? SIGN UP HERE</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/auth.js"></script>
+}

@@ -1,0 +1,63 @@
+﻿@model TKOH.DTOs.RegisterRequest
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<link rel="stylesheet" href="~/css/auth/auth.css" />
+<link rel="stylesheet" href="~/css/auth/auth-responsive.css" />
+
+<div class="auth-body">
+    <div class="auth-container auth-register-container">
+        <div class="auth-header">
+            <h1 class="auth-main-title">STUDIOS TKOH!</h1>
+            <h2 class="auth-subtitle">Create Account</h2>
+            <p class="auth-instructions">ENTER YOUR INFORMATION</p>
+        </div>
+
+        <div class="auth-form-container">
+            <form id="registerForm" asp-action="Register" method="post">
+                <div class="auth-form-group">
+                    <label asp-for="Name" class="auth-form-label">FULL NAME</label>
+                    <input asp-for="Name" class="auth-form-control" placeholder="Enter your full name" />
+                    <span asp-validation-for="Name" class="auth-text-danger"></span>
+                </div>
+
+                <div class="auth-form-group">
+                    <label asp-for="Email" class="auth-form-label">EMAIL</label>
+                    <input asp-for="Email" type="email" class="auth-form-control" placeholder="ejemplo@correo.com" />
+                    <span asp-validation-for="Email" class="auth-text-danger"></span>
+                </div>
+
+                <div class="auth-form-group">
+                    <label asp-for="Password" class="auth-form-label">PASSWORD</label>
+                    <div class="auth-password-container">
+                        <input asp-for="Password" type="password" class="auth-form-control" placeholder="********" />
+                        <button type="button" class="auth-password-toggle">SHOW</button>
+                    </div>
+                    <span asp-validation-for="Password" class="auth-text-danger"></span>
+                </div>
+
+                <div class="auth-form-group">
+                    <label asp-for="ConfirmPassword" class="auth-form-label">CONFIRM PASSWORD</label>
+                    <div class="auth-password-container">
+                        <input asp-for="ConfirmPassword" type="password" class="auth-form-control" placeholder="********" />
+                        <button type="button" class="auth-password-toggle">SHOW</button>
+                    </div>
+                    <span asp-validation-for="ConfirmPassword" class="auth-text-danger"></span>
+                </div>
+
+                <button type="submit" class="auth-btn-success">CREATE ACCOUNT</button>
+
+                <div class="auth-link-section">
+                    <a asp-action="Login">Do you already have an account? SIGN IN</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/auth.js"></script>
+}

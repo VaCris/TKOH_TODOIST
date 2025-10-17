@@ -1,0 +1,66 @@
+﻿@model TKOH.DTOs.CreateTemplateDTO
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="col-md-12">
+        <label asp-for="Title" class="form-label">Título</label>
+        <input asp-for="Title" class="form-control" placeholder="Enter the title of the template" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="Content" class="form-label">Contenido</label>
+        <textarea asp-for="Content" class="form-control" rows="4" placeholder="Enter the description"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Weekday" class="form-label">Day of the Week</label>
+        <select asp-for="Weekday" class="form-select">
+            <option value="">Select...</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+            <option value="7">Sunday</option>
+        </select>
+        <span asp-validation-for="Weekday" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Weight" class="form-label">Priority</label>
+        <select asp-for="Weight" class="form-select">
+            <option value="">Select priority...</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select>
+        <span asp-validation-for="Weight" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Date" class="form-label">Date and Time</label>
+        <input asp-for="Date" type="datetime-local" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-12 form-check">
+        <input class="form-check-input" type="checkbox" asp-for="IsActive" />
+        <label class="form-check-label" asp-for="IsActive">Active</label>
+    </div>
+
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <button type="submit" class="btn btn-primary me-2">Create</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
