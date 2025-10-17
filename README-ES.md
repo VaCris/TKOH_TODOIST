@@ -1,5 +1,7 @@
 # TKOH To-Doist
 
+**Idioma:** [English](README.md) | **Español**
+
 ¡Una aplicación de gestión de tareas y actividades potente y sencilla, diseñada para ayudarte a organizar tu día y a seguir el progreso con un sistema de puntuación!
 
 ## 🚀 Características Principales
