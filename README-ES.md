@@ -1,61 +1,63 @@
-# TKOH To-Doist
+<p align="center">
+  <a href="https://studios-tkoh.azurewebsites.net/" target="_blank">
+    <img src="https://drive.google.com/uc?export=view&id=1TuT30CiBkinh85WuTvjKGKN47hCyCS0Z" width="300" alt="Studios TKOH Logo">
+  </a>
+</p>
 
-**Idioma:** [English](README.md) | **Español**
+🎯 TKOH To-Doist
+Idioma: English | Español
 
-¡Una aplicación de gestión de tareas y actividades potente y sencilla, diseñada para ayudarte a organizar tu día y a seguir el progreso con un sistema de puntuación!
+Una aplicación de productividad y gestión de tareas (To-Do list) potente y moderna, construida con ASP.NET Core MVC. TKOH To-Doist está diseñada para ayudar a los usuarios a organizar sus tareas diarias, gestionar actividades complejas y seguir el progreso de sus logros personales con un sistema único de puntuación y recompensas.
 
-## 🚀 Características Principales
+✨ Módulos y Funcionalidades Clave
+La aplicación está estructurada en torno a un conjunto completo de características para maximizar la productividad y la administración de usuarios:
 
-Basado en la estructura del código (Controladores y Servicios), TKOH To-Doist ofrece las siguientes funcionalidades clave para la gestión de tareas:
+Gestión de Productividad y Tareas
+Gestión de Asignaciones (Assignments): Funcionalidad CRUD (Crear, Leer, Actualizar, Eliminar) completa para tareas y asignaciones individuales.
 
-* **Gestión de Asignaciones (Assignments):** Crea, edita y gestiona tareas individuales y su estado.
-* **Conjuntos de Actividades (Activity Sets):** Agrupa tareas o actividades relacionadas en conjuntos lógicos para una mejor organización.
-* **Plantillas (Templates):** Define plantillas de tareas reutilizables para optimizar la creación de actividades recurrentes.
-* **Sistema de Puntuación (Score History):** Realiza un seguimiento del progreso y la finalización de tareas a través de un historial de logros y puntuación.
-* **Autenticación Segura:** Funcionalidades de registro e inicio de sesión de usuarios.
-* **Control de Usuarios y Roles:** Administración de usuarios, asignación de roles y permisos para definir niveles de acceso y responsabilidades.
-* **Panel de Control (Dashboard):** Una vista centralizada para el resumen de actividades, tareas pendientes y progreso general.
+Conjuntos de Actividades (Activity Sets): Organiza tareas relacionadas en grupos lógicos, facilitando la gestión de proyectos y objetivos a largo plazo.
 
-## 🛠️ Tecnologías Utilizadas
+Plantillas (Templates): Crea y reutiliza plantillas de tareas para configurar rápidamente actividades recurrentes o proyectos estandarizados.
 
-Este proyecto es una aplicación web ASP.NET Core que utiliza el patrón MVC (Model-View-Controller) y una arquitectura de servicios para interactuar con una API/capa de datos externa.
+Sistema de Puntuación (Score History): Rastrea y registra el progreso del usuario, la finalización de tareas y los logros obtenidos, fomentando la motivación.
 
-* **Backend:** ASP.NET Core MVC (C#).
-* **Frontend:** HTML, CSS y JavaScript, con integración de Bootstrap.
-* **Patrones:** Uso de DTOs (Data Transfer Objects) y una capa de servicios (`Services`) clara para la lógica de negocio y la comunicación con el backend (simulada por `ConnectorAPI.cs`).
+Plataforma y Control de Usuarios
+Panel de Control (Dashboard) Centralizado: Una vista única e intuitiva que resume el progreso general, las tareas pendientes y las estadísticas clave.
 
-## 📦 Configuración y Ejecución
+Autenticación Segura: Funcionalidades robustas de registro e inicio de sesión gestionadas a través del AuthService.
 
-Para ejecutar este proyecto localmente, necesitarás tener instalado el SDK de .NET Core.
+Administración de Usuarios y Roles: Herramientas administrativas (UserController, RoleController) para gestionar usuarios, asignar roles personalizados y definir permisos de acceso detallados (RolePermissions.cs).
 
-### Requisitos
+⚙️ Stack Tecnológico
+TKOH To-Doist es una aplicación web que aprovecha el ecosistema de Microsoft para ofrecer una plataforma confiable y escalable.
 
-* .NET Core SDK (la versión compatible con el proyecto, revisar el archivo `TKOH/TKOH.csproj`).
-* Un IDE como Visual Studio o Visual Studio Code.
+📦 Configuración y Ejecución
+Sigue estos pasos para configurar y ejecutar la aplicación TKOH To-Doist localmente.
 
-### Pasos de Instalación
+Requisitos Previos
+(Versión compatible, verificar en TKOH/TKOH.csproj).
 
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone [URL_DEL_REPOSITORIO]
-    cd tkoh_todoist/TKOH
-    ```
-2.  **Restaurar dependencias:**
-    ```bash
-    dotnet restore
-    ```
-3.  **Ejecutar la aplicación:**
-    ```bash
-    dotnet run
-    ```
-La aplicación se iniciará, generalmente, en un puerto como `http://localhost:5000` o `https://localhost:7000`.
+Un IDE como Visual Studio o Visual Studio Code.
 
-## 📄 Licencia
+Pasos de Instalación
+Clonar el Repositorio:
 
-Este proyecto está bajo la licencia **MIT**. Consulta el archivo `LICENSE.txt` para más detalles.
+Restaurar Dependencias: Navega al directorio del proyecto y restaura todos los paquetes NuGet requeridos:
 
----
+Ejecutar la Aplicación: Ejecuta el proyecto. La aplicación compilará e iniciará un servidor web local:
 
-## 👨‍💻 Autor
+La aplicación estará típicamente accesible a través de un enlace en tu consola, generalmente http://localhost:5000 o https://localhost:7000.
 
-**¡Hecho por Studios TKOH!**
+Configuración
+Revisa appsettings.json y appsettings.Development.json para configurar las URLs base de la API (ApiSettings.cs) y otras configuraciones específicas del entorno.
+
+📄 Licencia
+Este proyecto se publica bajo los términos de la Licencia MIT. Para detalles completos, consulta el archivo LICENSE.txt adjunto.
+
+<p align="center">
+  <sub>🛠️ Desarrollado con 💙 por <strong>Studios TKOH</strong></sub><br>
+  <a href="https://studios-tkoh.azurewebsites.net/" target="_blank">🌐 studios-tkoh.azurewebsites.net</a>
+</p>
+
+
+<a href="" target="_blank">🌐 studios-tkoh.azurewebsites.net</a> </p>
