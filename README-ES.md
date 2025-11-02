@@ -58,6 +58,3 @@ Este proyecto se publica bajo los términos de la Licencia MIT. Para detalles co
   <sub>🛠️ Desarrollado con 💙 por <strong>Studios TKOH</strong></sub><br>
   <a href="https://studios-tkoh.azurewebsites.net/" target="_blank">🌐 studios-tkoh.azurewebsites.net</a>
 </p>
-
-
-<a href="" target="_blank">🌐 studios-tkoh.azurewebsites.net</a> </p>
