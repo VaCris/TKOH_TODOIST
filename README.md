@@ -1,61 +1,80 @@
-# TKOH To-Doist
+<p align="center">
+  <a href="https://studios-tkoh.azurewebsites.net/" target="_blank">
+    <img src="https://drive.google.com/uc?export=view&id=1TuT30CiBkinh85WuTvjKGKN47hCyCS0Z" width="300" alt="Studios TKOH Logo">
+  </a>
+</p>
+
+# 🎯 TKOH To-Doist
 
 **Language:** **English** | [Español (Spanish)](README-ES.md)
 
-A powerful and simple task and activity management application, designed to help you organize your day and track progress with a scoring system!
+A powerful and modern **To-Do list and productivity application** built with **ASP.NET Core MVC**. TKOH To-Doist is designed to help users organize their daily tasks, manage complex activities, and track personal achievement progress with a unique scoring and reward system.
 
-## 🚀 Key Features
+## ✨ Core Functionalities
 
-Based on the code structure (Controllers and Services), TKOH To-Doist offers the following key functionalities for task management:
+The application is structured around a comprehensive set of features to maximize productivity and user management:
 
-* **Assignment Management:** Create, edit, and manage individual tasks and their status.
-* **Activity Sets:** Group related tasks or activities into logical sets for better organization.
-* **Templates:** Define reusable task templates to streamline the creation of recurring activities.
-* **Scoring System (Score History):** Track progress and task completion through an achievement and scoring history.
-* **Secure Authentication:** User registration and login functionalities.
-* **User and Role Control:** User administration, role assignment, and permissions to define access levels and responsibilities.
-* **Dashboard:** A centralized view for the summary of activities, pending tasks, and overall progress.
+### Productivity & Task Management
+* **Assignment Management:** Full CRUD (Create, Read, Update, Delete) functionality for individual tasks and assignments.
+* **Activity Sets:** Organize related tasks into logical groups, promoting better project and long-term goal management.
+* **Templates:** Create and reuse task templates to rapidly set up recurring activities or standard projects.
+* **Scoring System (`Score History`):** Tracks and logs user progress, task completion, and earned achievements, fostering motivation and engagement.
 
-## 🛠️ Technologies Used
+### Platform & User Control
+* **Centralized Dashboard:** A single, intuitive view summarizing overall progress, pending tasks, and key statistics.
+* **Secure Authentication:** Robust user registration and login functionalities managed via the `AuthService`.
+* **User and Role Administration:** Comprehensive administrative tools (`UserController`, `RoleController`) for managing users, assigning custom roles, and defining granular access permissions (`RolePermissions.cs`).
 
-This project is an ASP.NET Core web application that uses the MVC (Model-View-Controller) pattern and a service layer to interact with an external API/data layer.
+## ⚙️ Technology Stack
 
-* **Backend:** ASP.NET Core MVC (C#).
-* **Frontend:** HTML, CSS, and JavaScript, with Bootstrap integration.
-* **Patterns:** Use of DTOs (Data Transfer Objects) and a clear service layer (`Services`) for business logic and communication with the backend (simulated by `ConnectorAPI.cs`).
+TKOH To-Doist is a powerful web application leveraging Microsoft's ecosystem for a reliable and scalable platform.
 
-## 📦 Setup and Execution
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Backend Framework** | **ASP.NET Core MVC (C#)** | Provides a robust Model-View-Controller architecture for the web application. |
+| **Logic Layer** | **Services Layer** | Dedicated service classes (`AssignmentService.cs`, `AuthService.cs`, etc.) encapsulate business logic and data manipulation. |
+| **Data Interface** | **ConnectorAPI** | A simulated or dedicated API connector (`ConnectorAPI.cs`) handles communication with an external API or data repository. |
+| **Data Models** | **DTOs (Data Transfer Objects)** | Used extensively to ensure clean and structured data communication between the application layers and the external API. |
+| **Frontend** | **HTML, CSS, JavaScript** | Standard web technologies for the user interface, with Bootstrap for responsive styling. |
 
-To run this project locally, you will need to have the .NET Core SDK installed.
+## 📦 Getting Started
 
-### Requirements
+Follow these steps to set up and run the TKOH To-Doist application locally.
 
-* .NET Core SDK (check the `TKOH/TKOH.csproj` file for the compatible version).
-* An IDE like Visual Studio or Visual Studio Code.
+### Prerequisites
+
+* [.NET Core SDK](https://dotnet.microsoft.com/download) (Version compatible with `TKOH/TKOH.csproj`).
+* A suitable IDE like Visual Studio or VS Code.
 
 ### Installation Steps
 
-1.  **Clone the repository:**
+1.  **Clone the Repository:**
     ```bash
     git clone [REPOSITORY_URL]
     cd tkoh_todoist/TKOH
     ```
-2.  **Restore dependencies:**
+2.  **Restore Dependencies:**
+    Navigate to the project directory and restore all required NuGet packages:
     ```bash
     dotnet restore
     ```
-3.  **Run the application:**
+3.  **Run the Application:**
+    Execute the project. The application will compile and launch a local web server:
     ```bash
     dotnet run
     ```
-The application will typically start on a port like `http://localhost:5000` or `https://localhost:7000`.
+The application will typically be accessible via a link in your console, usually `http://localhost:5000` or `https://localhost:7000`.
+
+### Configuration
+* Review `appsettings.json` and `appsettings.Development.json` to configure API base URLs (`ApiSettings.cs`) and other environment-specific settings.
 
 ## 📄 License
 
-This project is licensed under the **MIT** license. See the `LICENSE.txt` file for more details.
+This project is released under the terms of the **MIT License**. For full details, see the accompanying `LICENSE.txt` file.
 
----
+***
 
-## 👨‍💻 Author
-
-**Made by Studios TKOH!**
+<p align="center">
+  <sub>🛠️ Developed with 💙 by <strong>Studios TKOH</strong></sub><br>
+  <a href="https://studios-tkoh.azurewebsites.net/" target="_blank">🌐 studios-tkoh.azurewebsites.net</a>
+</p>
